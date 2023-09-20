@@ -6,7 +6,13 @@ public class StreetLight {
     private int x, y;
     private int width, height;
 
-    private Color lightColor;
+    private Color[] lightColors = new Color[]{
+            new Color(255, 0, 0),
+            new Color(0, 52, 255),
+            new Color(74, 255, 0),
+            new Color(238, 255, 0),
+    };
+    private int iLightColor = 0;
     private Color pillarColor;
 
     public StreetLight(int x, int y, int width, int height) {
@@ -14,8 +20,6 @@ public class StreetLight {
         this.y = y;
         this.width = width;
         this.height = height;
-
-        this.lightColor = new Color(255, 243, 8);
         this.pillarColor = new Color(0, 0, 0);
     }
 
@@ -32,7 +36,7 @@ public class StreetLight {
         g.setColor(pillarColor);
         g.fillArc(xLocal, yLocal, width, 3 * height / 10, 0, 180);
         // Рисуем стекло фонаря
-        g.setColor(lightColor);
+        g.setColor(lightColors[iLightColor]);
         xLocal += width / 6;
         yLocal += height / 20;
         g.fillArc(xLocal, yLocal, 2 * width / 3, height / 5, 0, 180);
@@ -46,5 +50,10 @@ public class StreetLight {
         g.fillRect(xLocal, yLocal, width / 3, 3 * height / 20);
         // ...
         g.setColor(save);
+    }
+
+    public void changeColor(){
+        iLightColor = (iLightColor +1) % lightColors.length;
+
     }
 }

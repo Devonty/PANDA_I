@@ -30,7 +30,8 @@ public class DrawPanel extends JPanel {
         this.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                System.out.println(e.getX() + " " + e.getY());
+                light.changeColor();
+                repaint();
             }
         });
     }
