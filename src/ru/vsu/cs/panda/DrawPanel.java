@@ -22,7 +22,7 @@ public class DrawPanel extends JPanel {
         panda = new Panda(625, 340);
         light = new StreetLight(225, 160);
         house = new House(990, 270);
-        bench = new Bench(60, 550);
+        bench = new Bench(60, 500);
         cage = new Cage(500, 50);
         bamboo = new Bamboo(500, 50);
 
